@@ -6,62 +6,52 @@
   <title>Document</title>
   <style>
     #contain {
-      width:40vw;
-      height:300px;
+      width: 40vw;
+      height: 300px;
       background: #eee;
-    }
-    #box {
-      width:100%;
-      height:100%;
-      background:transparent;
-      display: grid;
       position: relative;
-      grid-template-rows: 100%;
-      animation: Fit 0.1s forwards;
-      transform: translate(50%,50%);
-    }
-    canvas {
-      height: 100%;
-      width: auto;
-      background: transparent;
-      min-width: 0;
-      grid-row: 1/2;
-      grid-column: 1/2;
+      display: flex;
+      justify-content: center;
     }
     #fill {
-      grid-row: 1/2;
-      grid-column: 1/2;
+      flex: 0 1 auto;
+      height: 100%;
+      overflow: hidden;
       position: relative;
+    }
+    #fc {
+      height: 100%;
+      width: auto;
     }
     #abc {
       position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
       width: 100%;
-      background: yellow;
-      transform: translate(-50%,-50%);
     }
-    #abc::before{
+    #abc::before {
       content: '';
       display: block;
       width: 100%;
-      padding-bottom: calc(100% / 16 * 9); // you can set it by js with 'var()'
+      padding-bottom: calc(100% / (4 / 3));
     }
-    #aaa {
-      grid-row: 1/2;
-      grid-column: 1/2;
-    }
-    @keyframes Fit {
-      100% {
-        grid-template-columns: fit-content(100%);
-      }
+    #box {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: red;
     }
   </style>
 </head>
 <body>
   <div id="contain">
-    <div id="box">
-      <canvas width="16" height="9"></canvas>
-      <div id="fill">
-        <div id="abc"></div>
+    <div id="fill">
+      <canvas id="fc" width="4" height="3"></canvas>
+      <div id="abc">
+        <div id="box"></div>
       </div>
     </div>
   </div>
