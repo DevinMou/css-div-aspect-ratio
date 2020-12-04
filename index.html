@@ -34,7 +34,7 @@
       content: '';
       display: block;
       width: 100%;
-      padding-bottom: calc(100% / (4 / 3));
+      padding-bottom: calc(100% / var(--pb));
     }
     #box {
       position: absolute;
@@ -47,7 +47,7 @@
   </style>
 </head>
 <body>
-  <div id="contain">
+  <div id="contain" style="--pb:(4 / 3)">
     <div id="fill">
       <canvas id="fc" width="4" height="3"></canvas>
       <div id="abc">
